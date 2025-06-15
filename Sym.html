@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elwissam - Modern Hydraulic & Agricultural Solutions in Algeria</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter for clean text, Poppins for headlines -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #333; /* Darker grey for body text */
+            background-color: #f8fbfd; /* Very light blue-grey background */
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Custom Colors based on Elwissam Logo (Blue/Green/Grey) */
+        .bg-elwissam-blue { background-color: #2a628f; } /* Deep Blue */
+        .text-elwissam-blue { color: #2a628f; }
+        .border-elwissam-blue { border-color: #2a628f; }
+
+        .bg-elwissam-green { background-color: #4CAF50; } /* Medium Green */
+        .text-elwissam-green { color: #4CAF50; }
+
+        .bg-elwissam-light-blue { background-color: #e0f2f7; } /* Very Light Blue */
+        .text-elwissam-light-blue { color: #e0f2f7; }
+
+        /* General element styling */
+        .rounded-xl-custom { border-radius: 1.25rem; /* 20px */ }
+
+        /* Hero Slideshow Styles */
+        .slideshow-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .slideshow-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out; /* Slower, elegant fade */
+            animation: kenBurns 20s infinite alternate ease-in-out; /* Ken Burns effect */
+        }
+        .slideshow-image.active {
+            opacity: 1;
+        }
+
+        /* Ken Burns Effect */
+        @keyframes kenBurns {
+            0% { transform: scale(1.1) translateX(0%); }
+            100% { transform: scale(1) translateX(0%); }
+        }
+
+        .slideshow-image:nth-child(1) { animation-delay: 0s; }
+        .slideshow-image:nth-child(2) { animation-delay: 5s; }
+        .slideshow-image:nth-child(3) { animation-delay: 10s; }
+        .slideshow-image:nth-child(4) { animation-delay: 15s; }
+
+
+        /* Service Card Hover Effect */
+        .service-card {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Gradient Button */
+        .btn-gradient {
+            background: linear-gradient(to right, #2a628f, #4CAF50);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .btn-gradient:hover {
+            background: linear-gradient(to left, #2a628f, #4CAF50);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Parallax Section */
+        .parallax-section {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* Scroll Animation (Fade In/Slide Up) */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Scroll-to-top button styles */
+        #scrollToTopBtn {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed position */
+            bottom: 20px; /* Place at the bottom */
+            right: 30px; /* Place at the right */
+            z-index: 99; /* High z-index to be on top */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: #2a628f; /* Elwissam blue */
+            color: white; /* White text */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 15px; /* Some padding */
+            border-radius: 50%; /* Rounded shape */
+            font-size: 18px; /* Increase font size */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
+        }
+        #scrollToTopBtn:hover {
+            background-color: #4CAF50; /* Elwissam green on hover */
+            transform: translateY(-2px); /* Slight lift on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="bg-white shadow-lg fixed top-0 left-0 w-full z-50">
+        <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center">
+                <img src="https://elwissam.com/wp-content/uploads/2020/01/New-logo-800x800.png" alt="Elwissam Logo" class="h-12 mr-3" onerror="this.onerror=null; this.src='https://placehold.co/100x50/2a628f/ffffff?text=Elwissam'">
+            </a>
+            <!-- Navigation Links -->
+            <div class="space-x-8 text-lg hidden lg:flex">
+                <a href="#home" class="text-gray-700 hover:text-elwissam-blue transition duration-300 font-medium">Home</a>
+                <a href="#about" class="text-gray-700 hover:text-elwissam-blue transition duration-300 font-medium">About Us</a>
+                <a href="#services" class="text-gray-700 hover:text-elwissam-blue transition duration-300 font-medium">Services</a>
+                <a href="#products" class="text-gray-700 hover:text-elwissam-blue transition duration-300 font-medium">Products</a>
+                <a href="#portfolio" class="text-gray-700 hover:text-elwissam-blue transition duration-300 font-medium">Portfolio</a>
+                <a href="#testimonials" class="text-gray-700 hover:text-elwissam-blue transition duration-300 font-medium">Testimonials</a>
+                <a href="#blog" class="text-gray-700 hover:text-elwissam-blue transition duration-300 font-medium">Blog</a>
+                <a href="#faq" class="text-gray-700 hover:text-elwissam-blue transition duration-300 font-medium">FAQ</a>
+                <a href="#contact" class="text-gray-700 hover:text-elwissam-blue transition duration-300 font-medium">Contact Us</a>
+                <a href="#careers" class="text-gray-700 hover:text-elwissam-blue transition duration-300 font-medium">Careers</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="lg:hidden text-gray-700 focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu (hidden by default) -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white shadow-md">
+            <a href="#home" class="block px-6 py-3 text-gray-700 hover:bg-gray-100">Home</a>
+            <a href="#about" class="block px-6 py-3 text-gray-700 hover:bg-gray-100">About Us</a>
+            <a href="#services" class="block px-6 py-3 text-gray-700 hover:bg-gray-100">Services</a>
+            <a href="#products" class="block px-6 py-3 text-gray-700 hover:bg-gray-100">Products</a>
+            <a href="#portfolio" class="block px-6 py-3 text-gray-700 hover:bg-gray-100">Portfolio</a>
+            <a href="#testimonials" class="block px-6 py-3 text-gray-700 hover:bg-gray-100">Testimonials</a>
+            <a href="#blog" class="block px-6 py-3 text-gray-700 hover:bg-gray-100">Blog</a>
+            <a href="#faq" class="block px-6 py-3 text-gray-700 hover:bg-gray-100">FAQ</a>
+            <a href="#contact" class="block px-6 py-3 text-gray-700 hover:bg-gray-100">Contact Us</a>
+            <a href="#careers" class="block px-6 py-3 text-gray-700 hover:bg-gray-100">Careers</a>
+        </div>
+    </header>
+
+    <main class="pt-20"> <!-- Padding to account for fixed header -->
+
+        <!-- Hero Section with Slideshow -->
+        <section id="home" class="relative h-[650px] overflow-hidden text-white flex items-center justify-center text-center">
+            <div class="slideshow-container">
+                <img src="EuroWi.webp" alt="Hydraulic Infrastructure" class="slideshow-image active">
+                <img src="Aqua_logo_R_1974x300.webp" alt="Modern Farming" class="slideshow-image">
+                <img src="Povote.webp" alt="Industrial Technology" class="slideshow-image">
+                <img src="WiAE.png" alt="Green Fields" class="slideshow-image">
+                <!-- Using provided video thumbnail as an image, as directly embedding video requires more complex JS/iframes -->
+                <img src="https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=598112386528977%26get_thumbnail%3D1" onerror="this.onerror=null; this.src='https://placehold.co/1920x1080/2a628f/ffffff?text=Elwissam+Project+Video'" alt="Elwissam Project" class="slideshow-image">
+            </div>
+
+            <div class="relative z-10 p-8 bg-black bg-opacity-40 rounded-xl-custom mx-4 max-w-4xl animate-on-scroll">
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight drop-shadow-lg mb-6">
+                    Elwissam: Innovating Algeria's Water & Land
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 opacity-95 drop-shadow-md">
+                    Leading the future of Hydraulic and Agricultural industries with cutting-edge solutions, diverse products, and unparalleled application services.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                    <a href="#services" class="btn-gradient text-white px-8 py-4 rounded-full font-bold text-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-105">
+                        Our Services
+                    </a>
+                    <a href="#contact" class="bg-white text-elwissam-blue px-8 py-4 rounded-full font-bold text-lg shadow-xl hover:bg-gray-100 transition duration-300 transform hover:scale-105">
+                        Get in Touch
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="py-20 px-6 md:px-12 bg-elwissam-light-blue">
+            <div class="container mx-auto max-w-6xl text-center animate-on-scroll">
+                <h2 class="text-4xl md:text-5xl font-bold text-elwissam-blue mb-8">About Elwissam</h2>
+                <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-12">
+                    Elwissam stands as a pillar in Algeria's economic development, bringing modern and cutting-edge solutions to the hydraulic and agricultural sectors. As a dynamic group of companies, we leverage both globally imported excellence and robust local production to deliver a comprehensive and diverse range of products.
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="text-left animate-on-scroll">
+                        <h3 class="text-3xl font-semibold text-elwissam-blue mb-4">Our Vision & Values</h3>
+                        <p class="text-gray-700 leading-relaxed mb-6">
+                            Driven by our core values of **Customer First, Sustainability, and Diversity of Products**, we aim to empower industries and individuals alike. Our commitment extends beyond mere transactions; we foster long-term partnerships built on trust and mutual growth.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-700 text-lg space-y-2">
+                            <li>Customer-centric approach in every solution.</li>
+                            <li>Pioneering sustainable practices for a greener future.</li>
+                            <li>Offering an unmatched diversity of high-quality products.</li>
+                            <li>Commitment to innovation and continuous improvement.</li>
+                        </ul>
+                    </div>
+                    <div class="animate-on-scroll">
+                        <img src="Cust.webp" alt="Elwissam Team" class="rounded-xl-custom shadow-xl w-full h-auto object-cover">
+                    </div>
+                </div>
+
+                <div class="mt-20 animate-on-scroll">
+                    <h3 class="text-3xl font-semibold text-elwissam-blue mb-8">A Group of Companies, United by Excellence</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="bg-white p-8 rounded-xl-custom shadow-lg service-card">
+                            <img src="FILO.jpg" onerror="this.onerror=null; this.src='https://placehold.co/150x70/2a628f/ffffff?text=Fire+Pro+Logo'" alt="Fire Pro Logo" class="h-16 mx-auto mb-4 object-contain">
+                            <h4 class="text-2xl font-bold text-gray-800 mb-3">Fire Pro</h4>
+                            <p class="text-gray-600">Specializing in state-of-the-art anti-fire equipment, ensuring safety and protection for critical assets across various industries.</p>
+                        </div>
+                        <div class="bg-white p-8 rounded-xl-custom shadow-lg service-card">
+                            <img src="Agri.png" alt="Elwissam Agriculture Division Logo" class="h-16 mx-auto mb-4 object-contain">
+                            <h4 class="text-2xl font-bold text-gray-800 mb-3">Elwissam Agri</h4>
+                            <p class="text-gray-600">Dedicated to advanced agricultural solutions, from irrigation systems to modern farming machinery, boosting productivity.</p>
+                        </div>
+                        <div class="bg-white p-8 rounded-xl-custom shadow-lg service-card">
+                            <img src="Hydro.png" alt="Elwissam Hydraulic Division Logo" class="h-16 mx-auto mb-4 object-contain">
+                            <h4 class="text-2xl font-bold text-gray-800 mb-3">Elwissam Hydro</h4>
+                            <p class="text-gray-600">Providing robust hydraulic systems, pumps, and water management solutions for diverse industrial and municipal needs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section - Unique Product Application Service Highlight -->
+        <section id="services" class="py-20 px-6 md:px-12 bg-white">
+            <div class="container mx-auto max-w-6xl text-center animate-on-scroll">
+                <h2 class="text-4xl md:text-5xl font-bold text-elwissam-blue mb-8">Our Core Services</h2>
+                <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-12">
+                    At Elwissam, we offer more than just products; we provide comprehensive solutions backed by our unique expertise.
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="text-left animate-on-scroll">
+                        <h3 class="text-3xl font-semibold text-elwissam-blue mb-4">Exclusive: Product Application Service</h3>
+                        <p class="text-gray-700 leading-relaxed mb-6">
+                            Setting us apart from the competition, Elwissam proudly offers a unique **Product Application Service**. Our customers not only gain access to high-quality, globally imported and locally produced products, but they also benefit from our expert team ensuring these products are **perfectly applied and integrated**. This guarantees optimal performance, longevity, and peace of mind – a service you won't find elsewhere.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-700 text-lg space-y-2">
+                            <li>Expert installation and setup</li>
+                            <li>On-site calibration and testing</li>
+                            <li>Comprehensive training for your team</li>
+                            <li>Post-application support and maintenance</li>
+                        </ul>
+                        <a href="#contact" class="btn-gradient text-white px-6 py-3 rounded-full font-bold mt-8 inline-block shadow-md hover:shadow-lg">
+                            Learn More About Application
+                        </a>
+                    </div>
+                    <div class="animate-on-scroll">
+                        <img src="BlueL.png" alt="Product Application Service in action" class="rounded-xl-custom shadow-xl w-full h-auto object-cover">
+                    </div>
+                </div>
+
+                <div class="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-elwissam-light-blue p-8 rounded-xl-custom shadow-lg text-left service-card animate-on-scroll">
+                        <div class="text-elwissam-blue text-5xl mb-4">💧</div>
+                        <h4 class="text-2xl font-bold text-gray-800 mb-3">Hydraulic System Solutions</h4>
+                        <p class="text-gray-600">From large-scale irrigation projects to industrial water management, we provide robust and efficient hydraulic systems.</p>
+                    </div>
+                    <div class="bg-elwissam-light-blue p-8 rounded-xl-custom shadow-lg text-left service-card animate-on-scroll">
+                        <div class="text-elwissam-green text-5xl mb-4">🌾</div>
+                        <h4 class="text-2xl font-bold text-gray-800 mb-3">Agricultural Modernization</h4>
+                        <p class="text-gray-600">Equipping farms with advanced machinery, smart irrigation, and sustainable practices to maximize yield and efficiency.</p>
+                    </div>
+                    <div class="bg-elwissam-light-blue p-8 rounded-xl-custom shadow-lg text-left service-card animate-on-scroll">
+                        <div class="text-gray-800 text-5xl mb-4">💡</div>
+                        <h4 class="text-2xl font-bold text-gray-800 mb-3">Consultation & Support</h4>
+                        <p class="text-gray-600">Our experts offer in-depth consultation, project planning, and continuous technical support for all your needs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="products" class="py-20 px-6 md:px-12 bg-elwissam-blue text-white parallax-section" style="background-image: url('BlueBack.png');">
+            <div class="container mx-auto max-w-6xl text-center relative z-10 animate-on-scroll">
+                <h2 class="text-4xl md:text-5xl font-bold mb-8">Our Diverse Product Range</h2>
+                <p class="text-lg md:text-xl leading-relaxed mb-12 opacity-90">
+                    Discover an unparalleled collection of hydraulic and agricultural products, sourced globally for excellence and produced locally for innovation.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Product Category 1 -->
+                    <div class="bg-white text-gray-800 p-8 rounded-xl-custom shadow-lg service-card animate-on-scroll">
+                        <img src="Pomp.jpg" alt="Hydraulic Pumps" class="w-full h-40 object-cover rounded-md mb-4">
+                        <h3 class="text-2xl font-bold mb-2">Hydraulic Pumps & Motors</h3>
+                        <p class="text-gray-600 mb-4">High-performance pumps and motors for demanding industrial and agricultural applications.</p>
+                        <button class="bg-elwissam-blue text-white px-6 py-2 rounded-full font-semibold hover:bg-elwissam-green transition duration-300">View Products</button>
+                    </div>
+                    <!-- Product Category 2 -->
+                    <div class="bg-white text-gray-800 p-8 rounded-xl-custom shadow-lg service-card animate-on-scroll">
+                        <img src="Irregation.jpg" alt="Irrigation Systems" class="w-full h-40 object-cover rounded-md mb-4">
+                        <h3 class="text-2xl font-bold mb-2">Advanced Irrigation Systems</h3>
+                        <p class="text-gray-600 mb-4">Efficient and smart irrigation solutions to optimize water usage and crop yield.</p>
+                        <button class="bg-elwissam-blue text-white px-6 py-2 rounded-full font-semibold hover:bg-elwissam-green transition duration-300">View Products</button>
+                    </div>
+                    <!-- Product Category 3 -->
+                    <div class="bg-white text-gray-800 p-8 rounded-xl-custom shadow-lg service-card animate-on-scroll">
+                        <img src="Vanne.png" alt="Pipes and Fittings" class="w-full h-40 object-cover rounded-md mb-4">
+                        <h3 class="text-2xl font-bold mb-2">Pipes, Valves & Fittings</h3>
+                        <p class="text-gray-600 mb-4">Durable and reliable components for all your fluid transfer needs.</p>
+                        <button class="bg-elwissam-blue text-white px-6 py-2 rounded-full font-semibold hover:bg-elwissam-green transition duration-300">View Products</button>
+                    </div>
+                </div>
+                <a href="#" class="btn-gradient text-white px-8 py-3 rounded-full font-bold text-lg shadow-lg hover:shadow-xl mt-12 inline-block">Explore All Products</a>
+            </div>
+        </section>
+
+        <!-- Partners Section -->
+        <section class="py-16 bg-white px-6 md:px-12">
+            <div class="container mx-auto max-w-6xl text-center animate-on-scroll">
+                <h2 class="text-4xl font-bold text-elwissam-blue mb-12">Our Valued Partners</h2>
+                <div class="flex flex-wrap justify-center items-center gap-10 md:gap-16">
+                    <img src="EUs.png" onerror="this.onerror=null; this.src='https://placehold.co/200x80/cccccc/333333?text=Euro+Standard';" alt="Euro Standard Logo" class="h-20 object-contain animate-on-scroll">
+                    <img src="https://yt3.googleusercontent.com/ydu5DyNvbHTVbVz2kOOD1-0NCaztY7irDFV1_cBJBv90kPCfXHJ01b5YU5tbDQswlKp11W5Diw%3Ds900-c-k-c0x00ffffff-no-rj" onerror="this.onerror=null; this.src='https://placehold.co/200x80/cccccc/333333?text=Aquastrong';" alt="Aquastrong Logo" class="h-20 object-contain animate-on-scroll">
+                    <img src="Povote2.jpg" alt="Partner Logo 3" class="h-20 object-contain animate-on-scroll">
+                    <img src="GreenW.jpg" alt="Partner Logo 4" class="h-20 object-contain animate-on-scroll">
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio/Case Studies Section -->
+        <section id="portfolio" class="py-20 px-6 md:px-12 bg-elwissam-light-blue">
+            <div class="container mx-auto max-w-6xl text-center animate-on-scroll">
+                <h2 class="text-4xl md:text-5xl font-bold text-elwissam-blue mb-8">Our Impactful Projects</h2>
+                <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-12">
+                    Showcasing how Elwissam's solutions have driven progress across Algeria's vital sectors.
+                </p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project Card 1 -->
+                    <div class="bg-white rounded-xl-custom shadow-lg overflow-hidden service-card animate-on-scroll">
+                        <img src="LargeS.jpg" alt="Large Scale Irrigation Project" class="w-full h-48 object-cover">
+                        <div class="p-6 text-left">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-2">Mega Irrigation Project, South Algeria</h3>
+                            <p class="text-gray-600 mb-4 text-sm">Implemented a cutting-edge drip irrigation system across 500 hectares, increasing yield by 30%.</p>
+                            <a href="#" class="text-elwissam-blue font-semibold hover:underline">Read Case Study &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Project Card 2 -->
+                    <div class="bg-white rounded-xl-custom shadow-lg overflow-hidden service-card animate-on-scroll">
+                        <img src="UrbanW.jpg" alt="Urban Water Management" class="w-full h-48 object-cover">
+                        <div class="p-6 text-left">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-2">Smart Water Network, Algiers</h3>
+                            <p class="text-gray-600 mb-4 text-sm">Developed an intelligent urban water distribution system reducing water loss by 20%.</p>
+                            <a href="#" class="text-elwissam-blue font-semibold hover:underline">Read Case Study &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Project Card 3 -->
+                    <div class="bg-white rounded-xl-custom shadow-lg overflow-hidden service-card animate-on-scroll">
+                        <img src="AgriD.jpg" alt="Agricultural Equipment Deployment" class="w-full h-48 object-cover">
+                        <div class="p-6 text-left">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-2">Automated Farm Equipment Deployment</h3>
+                            <p class="text-gray-600 mb-4 text-sm">Successfully deployed and integrated automated farming machinery for a key agricultural client.</p>
+                            <a href="#" class="text-elwissam-blue font-semibold hover:underline">Read Case Study &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="btn-gradient text-white px-8 py-3 rounded-full font-bold text-lg shadow-lg hover:shadow-xl mt-12 inline-block">View All Projects</a>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-20 px-6 md:px-12 bg-white">
+            <div class="container mx-auto max-w-4xl text-center animate-on-scroll">
+                <h2 class="text-4xl md:text-5xl font-bold text-elwissam-blue mb-12">What Our Clients Say</h2>
+                <div class="relative w-full overflow-hidden">
+                    <div class="flex transition-transform duration-700 ease-in-out" id="testimonial-carousel">
+                        <!-- Testimonial 1 -->
+                        <div class="flex-shrink-0 w-full p-8 bg-elwissam-light-blue rounded-xl-custom shadow-lg mx-auto">
+                            <p class="text-xl italic text-gray-700 mb-6">
+                                "Elwissam's product application service was a game-changer for us. Their team ensured seamless integration, and the results exceeded our expectations. Truly a unique offering!"
+                            </p>
+                            <p class="font-semibold text-elwissam-blue text-lg">- Ahmed B., CEO, Hydropower Solutions</p>
+                        </div>
+                        <!-- Testimonial 2 -->
+                        <div class="flex-shrink-0 w-full p-8 bg-elwissam-light-blue rounded-xl-custom shadow-lg mx-auto hidden">
+                            <p class="text-xl italic text-gray-700 mb-6">
+                                "The quality of their agricultural equipment is unmatched, and their commitment to sustainability perfectly aligns with our farm's vision. Elwissam is a trusted partner."
+                            </p>
+                            <p class="font-semibold text-elwissam-blue text-lg">- Fatima K., Farm Manager, Green Harvest Farms</p>
+                        </div>
+                        <!-- Testimonial 3 -->
+                        <div class-="flex-shrink-0 w-full p-8 bg-elwissam-light-blue rounded-xl-custom shadow-lg mx-auto hidden">
+                            <p class="text-xl italic text-gray-700 mb-6">
+                                "From consultation to post-sales support, Elwissam's team demonstrated professionalism and deep expertise. They truly put the customer first."
+                            </p>
+                            <p class="font-semibold text-elwissam-blue text-lg">- Omar S., Project Director, National Construction</p>
+                        </div>
+                    </div>
+                    <!-- Carousel Indicators (Dots) -->
+                    <div class="flex justify-center mt-6 space-x-2" id="testimonial-indicators">
+                        <button class="w-3 h-3 bg-elwissam-blue rounded-full opacity-50 focus:outline-none" data-slide-to="0"></button>
+                        <button class="w-3 h-3 bg-elwissam-blue rounded-full opacity-50 focus:outline-none" data-slide-to="1"></button>
+                        <button class="w-3 h-3 bg-elwissam-blue rounded-full opacity-50 focus:outline-none" data-slide-to="2"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section id="blog" class="py-20 px-6 md:px-12 bg-elwissam-light-blue">
+            <div class="container mx-auto max-w-6xl text-center animate-on-scroll">
+                <h2 class="text-4xl md:text-5xl font-bold text-elwissam-blue mb-8">Latest Insights & News</h2>
+                <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-12">
+                    Stay updated with the latest trends, technologies, and expert advice in hydraulic and agricultural industries.
+                </p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Blog Post 1 -->
+                    <div class="bg-white rounded-xl-custom shadow-lg overflow-hidden service-card animate-on-scroll">
+                        <img src="https://placehold.co/400x250/4CAF50/ffffff?text=Smart+Farming+Blog" alt="Smart Farming" class="w-full h-48 object-cover">
+                        <div class="p-6 text-left">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-2">The Future of Smart Farming in Algeria</h3>
+                            <p class="text-gray-600 mb-4 text-sm">Explore how IoT and AI are transforming agricultural practices for higher efficiency.</p>
+                            <a href="#" class="text-elwissam-blue font-semibold hover:underline">Read More &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Blog Post 2 -->
+                    <div class="bg-white rounded-xl-custom shadow-lg overflow-hidden service-card animate-on-scroll">
+                        <img src="https://placehold.co/400x250/2a628f/ffffff?text=Water+Conservation+Blog" alt="Water Conservation" class="w-full h-48 object-cover">
+                        <div class="p-6 text-left">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-2">Sustainable Water Management Techniques</h3>
+                            <p class="text-gray-600 mb-4 text-sm">A deep dive into innovative methods for water conservation in hydraulic systems.</p>
+                            <a href="#" class="text-elwissam-blue font-semibold hover:underline">Read More &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Blog Post 3 -->
+                    <div class="bg-white rounded-xl-custom shadow-lg overflow-hidden service-card animate-on-scroll">
+                        <img src="https://placehold.co/400x250/4a769e/ffffff?text=Fire+Safety+Blog" alt="Fire Safety" class="w-full h-48 object-cover">
+                        <div class="p-6 text-left">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-2">Fire Pro: Protecting Your Assets Effectively</h3>
+                            <p class="text-gray-600 mb-4 text-sm">An essential guide to selecting and maintaining modern fire suppression systems.</p>
+                            <a href="#" class="text-elwissam-blue font-semibold hover:underline">Read More &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="btn-gradient text-white px-8 py-3 rounded-full font-bold text-lg shadow-lg hover:shadow-xl mt-12 inline-block">View All Articles</a>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-20 px-6 md:px-12 bg-white">
+            <div class="container mx-auto max-w-4xl text-center animate-on-scroll">
+                <h2 class="text-4xl md:text-5xl font-bold text-elwissam-blue mb-12">Frequently Asked Questions</h2>
+                <div class="space-y-4 text-left">
+                    <!-- FAQ Item 1 -->
+                    <div class="bg-elwissam-light-blue p-6 rounded-xl-custom shadow-md accordion-item">
+                        <button class="flex justify-between items-center w-full font-semibold text-lg text-gray-800 focus:outline-none accordion-header">
+                            What industries does Elwissam primarily serve?
+                            <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content hidden mt-4 text-gray-700 leading-relaxed">
+                            Elwissam specializes in providing cutting-edge solutions for the Hydraulic and Agricultural industries across Algeria, serving both large-scale construction companies and individual enthusiasts.
+                        </div>
+                    </div>
+                    <!-- FAQ Item 2 -->
+                    <div class="bg-elwissam-light-blue p-6 rounded-xl-custom shadow-md accordion-item">
+                        <button class="flex justify-between items-center w-full font-semibold text-lg text-gray-800 focus:outline-none accordion-header">
+                            What is your unique Product Application Service?
+                            <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content hidden mt-4 text-gray-700 leading-relaxed">
+                            Our Product Application Service ensures that the products you purchase are expertly installed, calibrated, and integrated by our skilled technicians. This guarantees optimal performance and hassle-free operation, providing a complete solution beyond just product supply.
+                        </div>
+                    </div>
+                    <!-- FAQ Item 3 -->
+                    <div class="bg-elwissam-light-blue p-6 rounded-xl-custom shadow-md accordion-item">
+                        <button class="flex justify-between items-center w-full font-semibold text-lg text-gray-800 focus:outline-none accordion-header">
+                            How can I inquire about specific products or services?
+                            <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content hidden mt-4 text-gray-700 leading-relaxed">
+                            You can reach out to us directly through our Contact Us page via phone, email, or by filling out the inquiry form. Our team is ready to assist you with detailed information and personalized solutions.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Us Section -->
+        <section id="contact" class="py-20 px-6 md:px-12 bg-elwissam-blue text-white parallax-section" style="background-image: url('https://placehold.co/1920x1080/204b6a/ffffff?text=Contact+Background+Image');">
+            <div class="container mx-auto max-w-6xl text-center relative z-10 animate-on-scroll">
+                <h2 class="text-4xl md:text-5xl font-bold mb-8">Get in Touch with Elwissam</h2>
+                <p class="text-lg md:text-xl leading-relaxed mb-12 opacity-90">
+                    We're here to help you find the best hydraulic and agricultural solutions for your projects.
+                </p>
+                <div class="grid md:grid-cols-2 gap-12 text-left">
+                    <div class="bg-white text-gray-800 p-8 rounded-xl-custom shadow-lg animate-on-scroll">
+                        <h3 class="text-2xl font-bold text-elwissam-blue mb-4">Contact Information</h3>
+                        <p class="mb-4"><strong>Address:</strong> [Your Company Address Here], Algeria</p>
+                        <p class="mb-4"><strong>Phone:</strong> +213 [Your Phone Number]</p>
+                        <p class="mb-4"><strong>Email:</strong> info@elwissam.dz</p>
+                        <div class="mt-6">
+                            <h4 class="font-semibold text-elwissam-blue mb-2">Business Hours:</h4>
+                            <p>Sunday - Thursday: 8:00 AM - 5:00 PM</p>
+                            <p>Saturday: 8:00 AM - 12:00 PM</p>
+                        </div>
+                        <div class="mt-6">
+                            <!-- Placeholder for Google Map -->
+                            <div class="bg-gray-200 h-48 rounded-md flex items-center justify-center text-gray-500">
+                                Google Map Location Placeholder
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white text-gray-800 p-8 rounded-xl-custom shadow-lg animate-on-scroll">
+                        <h3 class="text-2xl font-bold text-elwissam-blue mb-4">Send Us a Message</h3>
+                        <form class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-gray-700 text-sm font-semibold mb-2">Your Name</label>
+                                <input type="text" id="name" class="w-full p-3 border border-gray-300 rounded-md focus:ring-elwissam-blue focus:border-elwissam-blue" placeholder="Enter your name" required>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-700 text-sm font-semibold mb-2">Your Email</label>
+                                <input type="email" id="email" class="w-full p-3 border border-gray-300 rounded-md focus:ring-elwissam-blue focus:border-elwissam-blue" placeholder="Enter your email" required>
+                            </div>
+                            <div>
+                                <label for="subject" class="block text-gray-700 text-sm font-semibold mb-2">Subject</label>
+                                <input type="text" id="subject" class="w-full p-3 border border-gray-300 rounded-md focus:ring-elwissam-blue focus:border-elwissam-blue" placeholder="Subject of your inquiry" required>
+                            </div>
+                            <div>
+                                <label for="message" class="block text-gray-700 text-sm font-semibold mb-2">Your Message</label>
+                                <textarea id="message" rows="5" class="w-full p-3 border border-gray-300 rounded-md focus:ring-elwissam-blue focus:border-elwissam-blue" placeholder="Type your message here..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn-gradient text-white px-8 py-3 rounded-full font-bold shadow-md hover:shadow-lg transition duration-300">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Careers Section -->
+        <section id="careers" class="py-20 px-6 md:px-12 bg-white">
+            <div class="container mx-auto max-w-6xl text-center animate-on-scroll">
+                <h2 class="text-4xl md:text-5xl font-bold text-elwissam-blue mb-8">Join the Elwissam Family</h2>
+                <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-12">
+                    Are you passionate about innovation in hydraulic and agricultural industries? Do you thrive in a customer-first environment committed to sustainability? Explore career opportunities with Elwissam.
+                </p>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-elwissam-light-blue p-8 rounded-xl-custom shadow-lg text-left service-card animate-on-scroll">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Why Work With Us?</h3>
+                        <ul class="list-disc list-inside text-gray-700 text-lg space-y-2">
+                            <li>Be part of a leading Algerian company.</li>
+                            <li>Work on impactful projects shaping the nation's economy.</li>
+                            <li>Continuous learning and professional development.</li>
+                            <li>A collaborative and supportive work environment.</li>
+                            <li>Commitment to employee well-being and growth.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-elwissam-light-blue p-8 rounded-xl-custom shadow-lg text-left service-card animate-on-scroll">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Current Openings</h3>
+                        <p class="text-gray-700 mb-4">We are always looking for talented individuals to join our growing team. Check back regularly for new opportunities, or send us your CV.</p>
+                        <ul class="list-disc list-inside text-gray-700 text-lg space-y-2 mb-6">
+                            <li>Hydraulic Engineer (Senior/Junior)</li>
+                            <li>Agricultural Sales Specialist</li>
+                            <li>Technical Support Representative</li>
+                            <li>Logistics & Supply Chain Coordinator</li>
+                        </ul>
+                        <a href="#contact" class="btn-gradient text-white px-6 py-3 rounded-full font-bold shadow-md hover:shadow-lg">
+                            Submit Your CV
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-elwissam-blue text-elwissam-light-blue py-12">
+        <div class="container mx-auto px-6 text-center text-sm">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-left">
+                <div>
+                    <h4 class="font-bold text-lg mb-4 text-white">Elwissam Group</h4>
+                    <p class="leading-relaxed">Pioneering sustainable and cutting-edge solutions in Algeria's Hydraulic and Agricultural industries.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4 text-white">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="hover:text-white transition duration-300">About Us</a></li>
+                        <li><a href="#services" class="hover:text-white transition duration-300">Services</a></li>
+                        <li><a href="#products" class="hover:text-white transition duration-300">Products</a></li>
+                        <li><a href="#portfolio" class="hover:text-white transition duration-300">Portfolio</a></li>
+                        <li><a href="#careers" class="hover:text-white transition duration-300">Careers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4 text-white">Contact Info</h4>
+                    <p class="mb-2">Address: [Your Company Address Here], Algeria</p>
+                    <p class="mb-2">Phone: +213 [Your Phone Number]</p>
+                    <p class="mb-2">Email: info@elwissam.dz</p>
+                </div>
+            </div>
+            <hr class="border-elwissam-light-blue opacity-30 my-8">
+            <p>&copy; 2025 Elwissam. All rights reserved. | <a href="#" class="hover:text-white transition duration-300">Privacy Policy</a> | <a href="#" class="hover:text-white transition duration-300">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTopBtn" title="Go to top">⬆️</button>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close mobile menu if open
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Hero Section Slideshow Logic
+        const slideshowImages = document.querySelectorAll('.slideshow-image');
+        let currentImageIndex = 0;
+
+        function showNextImage() {
+            slideshowImages[currentImageIndex].classList.remove('active');
+            currentImageIndex = (currentImageIndex + 1) % slideshowImages.length;
+            slideshowImages[currentImageIndex].classList.add('active');
+        }
+        setInterval(showNextImage, 7000); // Change image every 7 seconds
+
+        // Scroll to Top Button Logic
+        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+        window.onscroll = function() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                scrollToTopBtn.style.display = "block";
+            } else {
+                scrollToTopBtn.style.display = "none";
+            }
+        };
+        scrollToTopBtn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // FAQ Accordion Logic
+        document.querySelectorAll('.accordion-header').forEach(button => {
+            button.addEventListener('click', () => {
+                const accordionContent = button.nextElementSibling;
+                const icon = button.querySelector('svg');
+
+                accordionContent.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+
+        // Intersection Observer for scroll animations (animate-on-scroll)
+        const animateElements = document.querySelectorAll('.animate-on-scroll');
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // Stop observing once animated
+                }
+            });
+        }, observerOptions);
+
+        animateElements.forEach(element => {
+            observer.observe(element);
+        });
+
+        // Testimonial Carousel Logic
+        const testimonialCarousel = document.getElementById('testimonial-carousel');
+        const testimonialItems = testimonialCarousel.children;
+        const testimonialIndicators = document.getElementById('testimonial-indicators').children;
+        let currentTestimonialIndex = 0;
+
+        function showTestimonial(index) {
+            for (let i = 0; i < testimonialItems.length; i++) {
+                testimonialItems[i].classList.add('hidden');
+                testimonialIndicators[i].classList.remove('opacity-100');
+                testimonialIndicators[i].classList.add('opacity-50');
+            }
+            testimonialItems[index].classList.remove('hidden');
+            testimonialItems[index].classList.add('flex'); // Ensure it becomes flex for centering
+            testimonialIndicators[index].classList.remove('opacity-50');
+            testimonialIndicators[index].classList.add('opacity-100');
+        }
+
+        function nextTestimonial() {
+            currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonialItems.length;
+            showTestimonial(currentTestimonialIndex);
+        }
+
+        // Initialize carousel
+        showTestimonial(0);
+        setInterval(nextTestimonial, 8000); // Change testimonial every 8 seconds
+
+        // Add event listeners for indicators
+        for (let i = 0; i < testimonialIndicators.length; i++) {
+            testimonialIndicators[i].addEventListener('click', () => {
+                currentTestimonialIndex = parseInt(testimonialIndicators[i].dataset.slideTo);
+                showTestimonial(currentTestimonialIndex);
+            });
+        }
+    </script>
+</body>
+</html>
